@@ -4,7 +4,7 @@
 import { EnvironmentConfiguration } from '../app/models/environment-configuration';
 
 const localhostUrl = 'https://localhost:44378/api';
-const serverUrl = 'https://lsc-table-booking-app-api.azurewebsites.net/api';
+const serverUrl = 'https://sk-table-booking-app-api.azurewebsites.net/api';
 
 // The list of file replacements can be found in `angular.json`.
 export const environment: EnvironmentConfiguration = {
