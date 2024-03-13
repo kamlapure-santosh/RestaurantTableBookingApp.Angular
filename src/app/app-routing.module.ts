@@ -9,37 +9,46 @@ import { EventsComponent } from './events/events.component';
 import { ChefsComponent } from './chefs/chefs.component';
 import { SearchRestaurantsComponent } from './search-restaurants/search-restaurants.component';
 import { ClaimsDetailsComponent } from './claims-details/claims-details.component';
-import { RoleAuthGuard } from './core/role-auth.guard';
+import { AdminAuthGuard } from './core/role-auth.guard';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
-import { SuperAdminAuthGuard } from './core/super-admin.guard copy';
+import { SuperAdminAuthGuard } from './core/super-admin.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
-    path: 'menu', component: MenuComponent
+    path: 'menu',
+    component: MenuComponent,
   },
   { path: 'home', component: HomeComponent },
   { path: 'events', component: EventsComponent },
   { path: 'chefs', component: ChefsComponent },
   {
-    path: 'about', component: AboutComponent
-  }, {
-    path: 'contact', component: ContactComponent
-  }, {
-    path: 'gallery', component: GalleryComponent
+    path: 'about',
+    component: AboutComponent,
   },
   {
-    path: 'claims', component: ClaimsDetailsComponent,
-    canActivate: [RoleAuthGuard] // Apply the RoleAuthGuard to this route
+    path: 'contact',
+    component: ContactComponent,
   },
   {
-    path: 'reservations', component: ReservationDetailsComponent
-    ,canActivate: [SuperAdminAuthGuard] // Apply the RoleAuthGuard to this route
+    path: 'gallery',
+    component: GalleryComponent,
   },
-  { path: 'book-a-table', component: SearchRestaurantsComponent }];
+  {
+    path: 'claims',
+    component: ClaimsDetailsComponent,
+    canActivate: [AdminAuthGuard], // Apply the AdminAuthGuard to this route
+  },
+  {
+    path: 'reservations',
+    component: ReservationDetailsComponent,
+    canActivate: [SuperAdminAuthGuard], // Apply the SuperAdminAuthGuard to this route
+  },
+  { path: 'book-a-table', component: SearchRestaurantsComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
