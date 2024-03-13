@@ -1,6 +1,8 @@
 import { EnvironmentConfiguration } from '../app/models/environment-configuration';
 
-const serverUrl = 'https://sk-table-booking-app-api.azurewebsites.net/api';
+//const serverUrl = 'https://sk-table-booking-app-api.azurewebsites.net/api';
+// docker url https://table-booking-api-docker.azurewebsites.net/
+const serverUrl = 'https://table-booking-api-docker.azurewebsites.net/api';
 
 // The list of file replacements can be found in `angular.json`.
 export const environment: EnvironmentConfiguration = {
